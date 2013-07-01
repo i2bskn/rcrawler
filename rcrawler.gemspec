@@ -5,12 +5,12 @@ require 'rcrawler/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "rcrawler"
-  spec.version       = Rcrawler::VERSION
+  spec.version       = RCrawler::VERSION
   spec.authors       = ["i2bskn"]
   spec.email         = ["i2bskn@gmail.com"]
   spec.description   = %q{rcrawler}
   spec.summary       = %q{rcrawler}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/i2bskn/rcrawler"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)

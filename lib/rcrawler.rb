@@ -6,4 +6,4 @@ require "capybara-webkit"
 require "nokogiri"
 
 require "rcrawler/version"
-require "rcrawler/crawler"
+require "rcrawler/driver"
