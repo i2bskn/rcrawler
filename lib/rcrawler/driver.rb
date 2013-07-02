@@ -11,6 +11,11 @@ module RCrawler
       @headless.start if @headless
     end
 
+    def screenshot(url, file_path)
+      visit(url)
+      page.save_screenshot(file_path)
+    end
+
     def doc
       Nokogiri::HTML(page.html)
     end
