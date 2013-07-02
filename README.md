@@ -1,6 +1,14 @@
-# Rcrawler
+# RCrawler
+
+[![Gem Version](https://badge.fury.io/rb/rcrawler.png)](http://badge.fury.io/rb/rcrawler)
+[![Code Climate](https://codeclimate.com/github/i2bskn/rcrawler.png)](https://codeclimate.com/github/i2bskn/rcrawler)
 
 The wrapper of capybara for crawler.
+
+## Dependencies
+
+* nokogiri requires libxml2.
+* capybara-webkit requires qt. [capybara-webkit wiki](https://github.com/thoughtbot/capybara-webkit/wiki/Installing-Qt-and-compiling-capybara-webkit)
 
 ## Installation
 
