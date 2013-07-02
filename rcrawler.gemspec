@@ -25,4 +25,5 @@ Gem::Specification.new do |spec|
   spec.add_dependency "capybara"
   spec.add_dependency "capybara-webkit"
   spec.add_dependency "nokogiri"
+  spec.add_dependency "headless"
 end
