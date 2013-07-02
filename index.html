@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>RCrawler by i2bskn</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>RCrawler</h1>
+        <p>The wrapper of capybara for crawler.</p>
+
+        <p class="view"><a href="https://github.com/i2bskn/rcrawler">View the Project on GitHub <small>i2bskn/rcrawler</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/i2bskn/rcrawler/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/i2bskn/rcrawler/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/i2bskn/rcrawler">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h2>
+<a name="dependencies" class="anchor" href="#dependencies"><span class="octicon octicon-link"></span></a>Dependencies</h2>
+
+<ul>
+<li>nokogiri requires libxml2.</li>
+<li>capybara-webkit requires qt. <a href="https://github.com/thoughtbot/capybara-webkit/wiki/Installing-Qt-and-compiling-capybara-webkit">capybara-webkit wiki</a>
+</li>
+</ul><h2>
+<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<p>Add this line to your application's Gemfile:</p>
+
+<pre><code>gem 'rcrawler'
+</code></pre>
+
+<p>And then execute:</p>
+
+<pre><code>$ bundle
+</code></pre>
+
+<p>Or install it yourself as:</p>
+
+<pre><code>$ gem install rcrawler
+</code></pre>
+
+<h2>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<div class="highlight"><pre><span class="nb">require</span> <span class="s2">"rcrawler"</span>
+
+<span class="no">RCrawler</span><span class="o">.</span><span class="n">crawl</span> <span class="k">do</span>
+  <span class="c1"># Some capybara dsl</span>
+  <span class="n">visit</span><span class="p">(</span><span class="s2">"https://example.com/login"</span><span class="p">)</span>
+  <span class="n">page</span><span class="o">.</span><span class="n">fill_in</span><span class="p">(</span><span class="s2">"name"</span><span class="p">,</span> <span class="ss">with</span><span class="p">:</span> <span class="s2">"user"</span><span class="p">)</span>
+  <span class="n">page</span><span class="o">.</span><span class="n">fill_in</span><span class="p">(</span><span class="s2">"password"</span><span class="p">,</span> <span class="ss">with</span><span class="p">:</span> <span class="s2">"secret"</span><span class="p">)</span>
+  <span class="n">page</span><span class="o">.</span><span class="n">click_button</span><span class="p">(</span><span class="s2">"send"</span><span class="p">)</span>
+  <span class="n">page</span><span class="o">.</span><span class="n">save_screenshot</span><span class="p">(</span><span class="s2">"/tmp/example.png"</span><span class="p">)</span>
+
+  <span class="c1"># Screenshot shortcut</span>
+  <span class="c1"># visit(arg[0]) and page.save_screenshot(arg[1])</span>
+  <span class="n">screenshot</span><span class="p">(</span><span class="s2">"http://example.com"</span><span class="p">,</span> <span class="s2">"/tmp/example.png"</span><span class="p">)</span>
+
+  <span class="c1"># Nokogiri</span>
+  <span class="c1"># doc is return Nokogiri::HTML(page.html)</span>
+  <span class="n">visit</span><span class="p">(</span><span class="s2">"http://example.com"</span><span class="p">)</span>
+  <span class="n">doc</span><span class="o">.</span><span class="n">css</span><span class="p">(</span><span class="s2">"a.some_link"</span><span class="p">)</span><span class="o">.</span><span class="n">each</span> <span class="p">{</span><span class="o">|</span><span class="n">a</span><span class="o">|</span> <span class="nb">puts</span> <span class="n">a</span><span class="o">.</span><span class="n">attr</span><span class="p">(</span><span class="s2">"href"</span><span class="p">)}</span>
+<span class="k">end</span>
+</pre></div>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/i2bskn">i2bskn</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
