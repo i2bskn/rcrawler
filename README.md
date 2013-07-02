@@ -1,6 +1,7 @@
 # RCrawler
 
 [![Gem Version](https://badge.fury.io/rb/rcrawler.png)](http://badge.fury.io/rb/rcrawler)
+[![Build Status](https://travis-ci.org/i2bskn/rcrawler.png?branch=master)](https://travis-ci.org/i2bskn/rcrawler)
 [![Code Climate](https://codeclimate.com/github/i2bskn/rcrawler.png)](https://codeclimate.com/github/i2bskn/rcrawler)
 
 The wrapper of capybara for crawler.
