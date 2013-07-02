@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = RCrawler::VERSION
   spec.authors       = ["i2bskn"]
   spec.email         = ["i2bskn@gmail.com"]
-  spec.description   = %q{rcrawler}
-  spec.summary       = %q{rcrawler}
+  spec.description   = %q{The wrapper of capybara for crawler}
+  spec.summary       = %q{The wrapper of capybara for crawler}
   spec.homepage      = "https://github.com/i2bskn/rcrawler"
   spec.license       = "MIT"
 

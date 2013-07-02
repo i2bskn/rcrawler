@@ -1,6 +1,6 @@
 # Rcrawler
 
-TODO: Write a gem description
+The wrapper of capybara for crawler.
 
 ## Installation
 
@@ -18,7 +18,27 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+require "rcrawler"
+
+RCrawler.crawl do
+  # Some capybara dsl
+  visit("https://example.com/login")
+  page.fill_in("name", with: "user")
+  page.fill_in("password", with: "secret")
+  page.click_button("send")
+  page.save_screenshot("/tmp/example.png")
+
+  # Screenshot shortcut
+  # visit(arg[0]) and page.save_screenshot(arg[1])
+  screenshot("http://example.com", "/tmp/example.png")
+
+  # Nokogiri
+  # doc is return Nokogiri::HTML(page.html)
+  visit("http://example.com")
+  doc.css("a.some_link").each {|a| puts a.attr("href")}
+end
+```
 
 ## Contributing
 
