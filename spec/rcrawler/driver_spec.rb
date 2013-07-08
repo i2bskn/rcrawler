@@ -49,6 +49,7 @@ describe RCrawler::Driver do
   describe "#doc" do
     it "should return Nokogiri::HTML::Document object" do
       d = RCrawler::Driver.new
+      d.page.should_receive(:html).and_return("<html></html>")
       expect(d.doc.is_a? Nokogiri::HTML::Document).to be_true
     end
   end
