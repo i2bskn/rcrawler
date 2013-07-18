@@ -28,6 +28,8 @@ Or install it yourself as:
 
 ## Usage
 
+#### Crawl
+
 ```ruby
 require "rcrawler"
 
