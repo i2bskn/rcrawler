@@ -17,8 +17,11 @@ module RCrawler
 
   class << self
     def crawl(&block)
-      crwl = Crawl.new
-      crwl.instance_eval &block
+      begin
+        Timeout::timeout(@config.timeout) {Crawl.new.instance_eval &block}
+      rescue Timeout::Error => e
+        raise if @config.timeout_proc == :raise
+      end
     end
 
     def configure(&block)

@@ -33,6 +33,12 @@ describe RCrawler::Async do
   end
 
   describe "#execute" do
+    it "thread should be created 8" do
+      mock = double("thread mock")
+      mock.should_receive(:join).exactly(8)
+      RCrawler::Async.any_instance.should_receive(:create_thread).exactly(8).and_return(mock)
+      expect{async.execute}.not_to raise_error
+    end
   end
 
   describe "#create_thread" do
