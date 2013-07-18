@@ -50,6 +50,33 @@ RCrawler.crawl do
 end
 ```
 
+#### Configuration
+
+```ruby
+RCrawler.configure do |c|
+  c.threads = 10 # => default is 8
+  c.timeout = 20 # => default is 10
+  c.timeout_proc = :ignore # => default is :raise
+end
+```
+
+#### Async processing
+
+```ruby
+RCrawler.async do
+  crawl do
+    # do something
+  end
+
+  crawl do
+    # do something
+  end
+
+  crawl do
+    # do something
+  end
+end
+```
 ## Contributing
 
 1. Fork it
