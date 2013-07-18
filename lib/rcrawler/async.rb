@@ -11,6 +11,7 @@ module RCrawler
     end
 
     def crawl(&block)
+      raise ArgumentError, "crawl method is required block" unless block_given?
       @queue.push block
     end
 
@@ -27,7 +28,7 @@ module RCrawler
       ::Thread.start do
         while !@queue.empty?
           begin
-            timeout(@config.timeout) {exec_crawl(@queue.pop)}
+            Timeout::timeout(@config.timeout) {exec_crawl(@queue.pop)}
           rescue Timeout::Error => e
             raise if @config.timeout_proc == :raise
           end

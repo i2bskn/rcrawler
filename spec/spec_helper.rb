@@ -2,7 +2,7 @@ require "simplecov"
 require "coveralls"
 Coveralls.wear!
 
-# SimpleCov.formatter = SimpleCov::Formatter::HTMLFormatter
+SimpleCov.formatter = SimpleCov::Formatter::HTMLFormatter
 SimpleCov.start do
   add_filter "spec"
   add_filter ".bundle"
@@ -12,4 +12,5 @@ require "rcrawler"
 
 RSpec.configure do |config|
   config.order = "random"
+  config.after {RCrawler::Configuration.instance.reset}
 end
