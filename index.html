@@ -56,6 +56,9 @@
 <h2>
 <a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
 
+<h4>
+<a name="crawl" class="anchor" href="#crawl"><span class="octicon octicon-link"></span></a>Crawl</h4>
+
 <div class="highlight"><pre><span class="nb">require</span> <span class="s2">"rcrawler"</span>
 
 <span class="no">RCrawler</span><span class="o">.</span><span class="n">crawl</span> <span class="k">do</span>
@@ -74,6 +77,34 @@
   <span class="c1"># doc is return Nokogiri::HTML(page.html)</span>
   <span class="n">visit</span><span class="p">(</span><span class="s2">"http://example.com"</span><span class="p">)</span>
   <span class="n">doc</span><span class="o">.</span><span class="n">css</span><span class="p">(</span><span class="s2">"a.some_link"</span><span class="p">)</span><span class="o">.</span><span class="n">each</span> <span class="p">{</span><span class="o">|</span><span class="n">a</span><span class="o">|</span> <span class="nb">puts</span> <span class="n">a</span><span class="o">.</span><span class="n">attr</span><span class="p">(</span><span class="s2">"href"</span><span class="p">)}</span>
+<span class="k">end</span>
+</pre></div>
+
+<h4>
+<a name="configuration" class="anchor" href="#configuration"><span class="octicon octicon-link"></span></a>Configuration</h4>
+
+<div class="highlight"><pre><span class="no">RCrawler</span><span class="o">.</span><span class="n">configure</span> <span class="k">do</span> <span class="o">|</span><span class="n">c</span><span class="o">|</span>
+  <span class="n">c</span><span class="o">.</span><span class="n">threads</span> <span class="o">=</span> <span class="mi">10</span> <span class="c1"># =&gt; default is 8</span>
+  <span class="n">c</span><span class="o">.</span><span class="n">timeout</span> <span class="o">=</span> <span class="mi">20</span> <span class="c1"># =&gt; default is 10</span>
+  <span class="n">c</span><span class="o">.</span><span class="n">timeout_proc</span> <span class="o">=</span> <span class="ss">:ignore</span> <span class="c1"># =&gt; default is :raise</span>
+<span class="k">end</span>
+</pre></div>
+
+<h4>
+<a name="async-processing" class="anchor" href="#async-processing"><span class="octicon octicon-link"></span></a>Async processing</h4>
+
+<div class="highlight"><pre><span class="no">RCrawler</span><span class="o">.</span><span class="n">async</span> <span class="k">do</span>
+  <span class="n">crawl</span> <span class="k">do</span>
+    <span class="c1"># do something</span>
+  <span class="k">end</span>
+
+  <span class="n">crawl</span> <span class="k">do</span>
+    <span class="c1"># do something</span>
+  <span class="k">end</span>
+
+  <span class="n">crawl</span> <span class="k">do</span>
+    <span class="c1"># do something</span>
+  <span class="k">end</span>
 <span class="k">end</span>
 </pre></div>
       </section>
