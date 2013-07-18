@@ -7,6 +7,7 @@ module RCrawler
   class Async
     def initialize
       @queue = ::Queue.new
+      @config = ::RCrawler::Configuration.instance
     end
 
     def crawl(&block)
@@ -15,7 +16,7 @@ module RCrawler
 
     def execute
       threads = []
-      8.times do
+      @config.threads.times do
         threads << create_thread
       end
       threads.each {|thread| thread.join}
@@ -26,9 +27,9 @@ module RCrawler
       ::Thread.start do
         while !@queue.empty?
           begin
-            timeout(10) {exec_crawl(@queue.pop)}
+            timeout(@config.timeout) {exec_crawl(@queue.pop)}
           rescue Timeout::Error => e
-            raise
+            raise if @config.timeout_proc == :raise
           end
         end
       end

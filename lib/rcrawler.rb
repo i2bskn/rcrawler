@@ -7,15 +7,26 @@ require "nokogiri"
 require "headless"
 
 require "rcrawler/version"
+require "rcrawler/configuration"
 require "rcrawler/driver"
 require "rcrawler/crawl"
 require "rcrawler/async"
 
 module RCrawler
+  @config = Configuration.instance
+
   class << self
     def crawl(&block)
       crwl = Crawl.new
       crwl.instance_eval &block
+    end
+
+    def configure(&block)
+      if block_given?
+        @config.configure &block
+      else
+        @config
+      end
     end
 
     def async(&block)
