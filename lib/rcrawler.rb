@@ -5,6 +5,7 @@ require "capybara/dsl"
 require "capybara-webkit"
 require "nokogiri"
 require "headless"
+require "timeout"
 
 require "rcrawler/version"
 require "rcrawler/configuration"

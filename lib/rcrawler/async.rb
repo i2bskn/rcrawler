@@ -1,7 +1,6 @@
 # coding: utf-8
 
 require "thread"
-require "timeout"
 
 module RCrawler
   class Async

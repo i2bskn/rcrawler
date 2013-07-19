@@ -50,7 +50,13 @@ describe RCrawler::Async do
 
     it "exec_crawl method should be called" do
       async.crawl {}
-      expect{async.send(:create_thread)}.not_to raise_error
+      expect{async.send(:create_thread).join}.not_to raise_error
+    end
+
+    it "exception should be generated if timeout" do
+      Timeout.should_receive(:timeout).and_raise(Timeout::Error)
+      async.instance_eval {@queue.push Proc.new{}}
+      expect{async.send(:create_thread).join}.to raise_error(Timeout::Error)
     end
   end
 
@@ -59,7 +65,7 @@ describe RCrawler::Async do
       mock = double("crawl mock")
       mock.should_receive(:instance_eval)
       RCrawler::Crawl.should_receive(:new).and_return(mock)
-      expect(async.send(:exec_crawl, Proc.new{})).not_to raise_error
+      expect{async.send(:exec_crawl, Proc.new{})}.not_to raise_error
     end
   end
 end

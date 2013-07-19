@@ -18,6 +18,11 @@ describe RCrawler do
       mock.should_receive(:instance_eval)
       RCrawler.crawl {}
     end
+
+    it "exception should be generated if timeout" do
+      Timeout.should_receive(:timeout).and_raise(Timeout::Error)
+      expect{RCrawler.crawl {}}.to raise_error(Timeout::Error)
+    end
   end
 
   describe ".async" do
