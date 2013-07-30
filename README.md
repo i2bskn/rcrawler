@@ -79,6 +79,14 @@ RCrawler.async do
   end
 end
 ```
+
+#### Command
+
+    % rcrawler help
+    Commands:
+      rcrawler help [COMMAND]         # Describe available commands or one specific command
+      rcrawler sc http://example.com  # Get screen shot
+
 ## Contributing
 
 1. Fork it
