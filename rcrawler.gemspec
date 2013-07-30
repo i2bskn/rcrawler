@@ -22,6 +22,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake"
   spec.add_development_dependency "rspec"
 
+  spec.add_dependency "thor"
   spec.add_dependency "capybara"
   spec.add_dependency "capybara-webkit"
   spec.add_dependency "nokogiri"
