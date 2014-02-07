@@ -27,4 +27,6 @@ Gem::Specification.new do |spec|
   spec.add_dependency "capybara-webkit"
   spec.add_dependency "nokogiri"
   spec.add_dependency "headless"
+  spec.add_development_dependency "coveralls"
+  spec.add_development_dependency "simplecov"
 end
